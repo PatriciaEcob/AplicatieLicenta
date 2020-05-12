@@ -25,13 +25,8 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    public void openTapHere() {
-        Intent intent = new Intent(this, Signup_form.class);
+    private void openTapHere() {
+        Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
     }
 }
-
-
-
-
-
