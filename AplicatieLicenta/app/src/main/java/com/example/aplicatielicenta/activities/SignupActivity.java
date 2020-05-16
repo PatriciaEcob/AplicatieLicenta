@@ -1,4 +1,4 @@
-package com.example.aplicatielicenta;
+package com.example.aplicatielicenta.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,6 +8,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.aplicatielicenta.R;
+import com.example.aplicatielicenta.managers.ApplicationManager;
+import com.example.aplicatielicenta.managers.DatabaseManager;
+import com.example.aplicatielicenta.models.SignUpModel;
+import com.example.aplicatielicenta.models.UserModel;
+
+import java.util.UUID;
+
 public class SignupActivity extends AppCompatActivity {
     private TextView fullNameTextView;
     private TextView usernameTextView;
@@ -16,6 +24,7 @@ public class SignupActivity extends AppCompatActivity {
     private TextView confirmPasswordTextView;
     private Button registerButton;
     private Button loginButton;
+    private int gender;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +33,15 @@ public class SignupActivity extends AppCompatActivity {
         setContentView(R.layout.activity_signup);
         getSupportActionBar().setTitle("SingUp");
         initViews();
+    }
+
+    public void onChooseGenderClick(View view) {
+        if(view.getId() == R.id.rb_male) {
+            gender = 0;
+        }
+        else {
+            gender = 1;
+        }
     }
 
     private void initViews() {
@@ -54,7 +72,12 @@ public class SignupActivity extends AppCompatActivity {
         String email = emailTextView.getText().toString();
         String password = passwordTextView.getText().toString();
 
-        // Add user in database
+        UUID userId = UUID.randomUUID();
+        SignUpModel newUser = new SignUpModel(userId.toString(), fullName, email, password, username, gender);
+        DatabaseManager.getInstance().addUser(newUser);
+
+        UserModel user = new UserModel(newUser.id, fullName, newUser.email, newUser.username, newUser.gender);
+        ApplicationManager.getInstance().setUser(user);
 
         Intent intent = new Intent(this, SetKiloActivity.class);
         startActivity(intent);

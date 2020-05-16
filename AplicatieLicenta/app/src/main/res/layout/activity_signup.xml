@@ -7,7 +7,7 @@
     android:background="@color/background"
     android:orientation="vertical"
     android:padding="30dp"
-    tools:context=".SignupActivity">
+    tools:context=".activities.SignupActivity">
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
@@ -23,10 +23,12 @@
             android:layout_height="wrap_content"
             android:hint="Full Name"
             android:ems="10"
-            android:inputType="text"
+            android:inputType="textCapWords"
             android:textSize="20sp"
             android:autofillHints=""
-            tools:targetApi="o"/>
+            tools:targetApi="o"
+            android:singleLine="true"
+            android:nextFocusDown="@+id/et_username" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -43,9 +45,11 @@
             android:layout_height="wrap_content"
             android:hint="Username"
             android:ems="10"
-            android:inputType="text"
+            android:inputType="textEmailAddress"
             android:textSize="20sp"
-            android:autofillHints="" />
+            android:autofillHints=""
+            android:singleLine="true"
+            android:nextFocusDown="@+id/et_email" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -63,7 +67,9 @@
             android:hint="Email"
             android:ems="10"
             android:inputType="textEmailAddress"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:singleLine="true"
+            android:nextFocusDown="@+id/et_password" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -81,7 +87,9 @@
             android:hint="Password"
             android:ems="10"
             android:inputType="textPassword"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:singleLine="true"
+            android:nextFocusDown="@+id/et_confirm_password" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -98,7 +106,8 @@
             android:hint="Confirm Password"
             android:ems="10"
             android:inputType="textPassword"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:singleLine="true" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <RadioGroup
@@ -119,7 +128,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Male"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:onClick="onChooseGenderClick" />
 
         <RadioButton
             android:id="@+id/rb_female"
@@ -127,7 +137,8 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:text="Female"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:onClick="onChooseGenderClick" />
     </RadioGroup>
 
     <Button

@@ -1,4 +1,4 @@
-package com.example.aplicatielicenta;
+package com.example.aplicatielicenta.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,6 +7,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.example.aplicatielicenta.R;
+import com.example.aplicatielicenta.managers.ApplicationManager;
+import com.example.aplicatielicenta.managers.DatabaseManager;
+import com.example.aplicatielicenta.models.UserModel;
 
 public class LoginActivity extends AppCompatActivity {
     private TextView usernameTextView;
@@ -51,9 +57,15 @@ public class LoginActivity extends AppCompatActivity {
         String username = usernameTextView.getText().toString();
         String password = passwordTextView.getText().toString();
 
-        // Check if user exists
+        UserModel user = DatabaseManager.getInstance().getUser(username, password);
+        if(user != null) {
+            ApplicationManager.getInstance().setUser(user);
 
-        Intent intent = new Intent(this, HomeActivity.class);
-        startActivity(intent);
+            Intent intent = new Intent(this, HomeActivity.class);
+            startActivity(intent);
+        }
+        else {
+            Toast.makeText(this, "Wrong username or password", Toast.LENGTH_LONG).show();
+        }
     }
 }

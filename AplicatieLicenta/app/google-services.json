@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "605361738709",
+    "firebase_url": "https://be-happy-be-healthy-45ecc.firebaseio.com",
+    "project_id": "be-happy-be-healthy-45ecc",
+    "storage_bucket": "be-happy-be-healthy-45ecc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:605361738709:android:b3f5f40065914b4e26635c",
+        "android_client_info": {
+          "package_name": "com.example.aplicatielicenta"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "605361738709-ik75nsonfimnqh43q6dhu9pgg5o2relv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBAUs7lt-r0fQSIjsLc6uThmzQdgk7aka4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "605361738709-ik75nsonfimnqh43q6dhu9pgg5o2relv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

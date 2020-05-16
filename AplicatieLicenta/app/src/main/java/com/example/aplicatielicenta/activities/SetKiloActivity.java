@@ -1,12 +1,17 @@
-package com.example.aplicatielicenta;
+package com.example.aplicatielicenta.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import com.example.aplicatielicenta.R;
+import com.example.aplicatielicenta.managers.ApplicationManager;
+import com.example.aplicatielicenta.managers.DatabaseManager;
 
 public class SetKiloActivity extends AppCompatActivity {
     private TextView currentTextView;
@@ -35,10 +40,12 @@ public class SetKiloActivity extends AppCompatActivity {
     }
 
     private void openHome() {
-        String current = currentTextView.getText().toString();
-        String goal = goalTextView.getText().toString();
+        double current = Double.parseDouble(currentTextView.getText().toString());
+        double goal = Double.parseDouble(goalTextView.getText().toString());
 
-        // Add these 2 in user data in database
+        ApplicationManager.getInstance().getUser().currentKilo = current;
+        ApplicationManager.getInstance().getUser().goalKilo = goal;
+        DatabaseManager.getInstance().setKilos(current, goal);
 
         Intent intent = new Intent(this, HomeActivity.class);
         startActivity(intent);

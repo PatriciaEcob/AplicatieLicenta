@@ -1,8 +1,10 @@
-package com.example.aplicatielicenta;
+package com.example.aplicatielicenta.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.example.aplicatielicenta.R;
 
 public class HomeActivity extends AppCompatActivity {
 
